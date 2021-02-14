@@ -7,11 +7,11 @@ node ('buildserver') {
         scm: [$class: 'GitSCM', branches: [[name: '*/master']], 
         doGenerateSubmoduleConfigurations: false, extensions: [], 
         submoduleCfg: [], 
-        userRemoteConfigs: [[url: 'https://plusforum@bitbucket.org/plusforum/helloworldweb.git']]]
+        userRemoteConfigs: [[url: 'https://github.com/ganeshhp/helloworldweb-test.git']]]
   }
 
   stage ('build') {
-    bat 'mvn clean package'
+    bat 'mvn clean install'
   }
 
   stage ('deploy_to_artifactory') {
