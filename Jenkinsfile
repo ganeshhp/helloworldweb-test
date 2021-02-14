@@ -11,11 +11,11 @@ node ('buildserver') {
   }
 
   stage ('build') {
-    bat 'mvn clean install'
+    sh 'mvn clean install'
   }
 
   stage ('deploy_to_artifactory') {
-      bat 'curl -uuser1:AP9K5dA8z8tK69uEtYQzZ1jPeXA -T target/Helloworldwebapp.war "http://104.197.214.197:8081/artifactory/repo10/Helloworldwebapp.war"'
+      sh 'curl -uuser1:AP9K5dA8z8tK69uEtYQzZ1jPeXA -T target/Helloworldwebapp.war "http://104.197.214.197:8081/artifactory/repo10/Helloworldwebapp.war"'
   }
   
   stage ('archive') {
